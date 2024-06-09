@@ -1,0 +1,100 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %} Alimentos {% endblock %}
+{% block css %}
+<link type='text/css' rel='stylesheet' href='static/comida/css/style.css'>
+
+{% endblock %}
+{% block content %}
+<section>
+    <br>
+    <div class="box">
+        <img class="logito img-fluid" src="{% static 'comida/img/comida-banner.png' %}" alt="logo de alimentos">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card-deck">
+        <div class="card">
+            <img src="{% static 'comida/img/proplan-perro.jpg' %}" class="card-img-top img-fluid"
+                alt="comida para perro">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Proplan Adulto Razas Medianas - Alimento para perros</h5>
+                <p class="card-text">15 KG</p>
+                <p>$32.990</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'comida/img/proplan-gato.jpg' %}" class="card-img-top img-fluid" alt="comida para gato">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Proplan Adulto Cat - Alimento para gatos</h5>
+                <p class="card-text">7,5 KG</p>
+                <p>$60.990</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="static/comida/img/royal-cachorro.jpg" class="card-img-top" alt="perro">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Royal Canin adulto Mini Adult - Alimento para perros</h5>
+                <p class="card-text">7,5 KG</p>
+                <p>$45.990</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="static/comida/img/royal-gatito.jpg" class="card-img-top" alt="gato comiaa">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Royal Canin Gatito Felino Kitten - Alimento para gatos</h5>
+                <p class="card-text">4KG</p>
+                <p class="card-text">
+                    $31.000</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-deck">
+        <div class="card">
+            <img src="static/comida/img/snack-biljac.jpeg" class="card-img-top" alt="snack">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Snacks Bil Jac - Little Jacs</h5>
+                <p class="card-text">$4.690</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="static/comida/img/snack-dingo.webp" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Dingo Snack para perro</h5>
+                <p class="card-text">2 unidades sabor Kabob</p>
+                <p>$2.690</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="static/comida/img/lata-gato.png" class="card-img-top" alt="gato comia">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title"> Royal Canin Alimento Húmedo Gatitos en lata</h5>
+                <p class="card-text">145 GR</p>
+                <p>$2.990</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="static/comida/img/nutrience-original.jpg" class="card-img-top" alt="alske">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Nutrience original Healthy Kitten - Alimento para gatos</h5>
+                <p class="card-text">2.5 KG</p>
+                <p>$22.990</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
