@@ -12,3 +12,12 @@ def alimentos(request):
 
 def accesorios(request):
     return render(request, 'app/accesorios.html')
+
+def farmacia(request):
+    return render(request, 'app/farmacia.html')
+
+def login(request):
+    return render(request, 'app/login.html')
+
+def registro(request):
+    return render(request, 'app/registro.html')
