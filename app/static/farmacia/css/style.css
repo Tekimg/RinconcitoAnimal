@@ -19,13 +19,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
-
 .logito {
+    width: 80%;
     max-width: 100%; 
     height: auto; 
     margin: 0 10px; 
+}
+
+.aaaaa{
+    list-style: none;
+}
+
+.btn btn-primary{
+    align-self: baseline;
 }
 .class2 {
     display: flex;
@@ -34,4 +41,7 @@
 
 .help{
     height: 35px;
+}
+.card-li{
+    padding-right: 10%;
 }
