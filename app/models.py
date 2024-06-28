@@ -1,6 +1,7 @@
 from django.db import models
 #Regex para validar que tengan los formatos de registro
 from django.core.validators import RegexValidator, EmailValidator
+import datetime
 
 
 # Create your models here.
@@ -40,3 +41,18 @@ class User(models.Model):
         return f'{self.nombres} {self.apellidos}'
 
 
+
+# Orden del Cliente
+class Order(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    Usuario =  models.ForeignKey(User, on_delete=models.CASCADE)
+    Cantidad = models.IntegerField(default=1) 
+    Direccion = models.CharField(max_length=100, default='', blank=True)
+    Fecha = models.DateField(default=datetime.datetime.today)
+
+    def __str__(self):
+        return self.producto
+
+
+
+ 
