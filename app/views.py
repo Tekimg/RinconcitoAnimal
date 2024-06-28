@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
 from .forms import RegistrarForm
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 
 # Create your views here.
@@ -23,28 +25,14 @@ def login(request):
     return render(request, 'app/login.html')
 
 def registro(request):
-    if request.method is not "POST":
-        usuarios = User.objects.all()
-        context= {'usuarios':usuarios}
-        return render(request,'app/registro.html', context)
+    mensaje = ''  
+    if request.method == 'POST':
+        form = RegistrarForm(request.POST)
+        if form.is_valid():
+            form.save()
+            mensaje = 'Usuario registrado correctamente.'
+            return render(request, 'app/login.html', {'mensaje': mensaje})
     else:
-        nombres = request.POST["nombres"]
-        apellidos = request.POST["apellidos"]
-        celular = request.POST["celular"]
-        rut = request.POST["rut"]
-        email = request.POST["email"]
-        pass1 = request.POST["pass1"]
-        pass2 = request.POST["pass2"]
-        
-        obj=User.objects.create(
-            nombres=nombres,
-            apellidos=apellidos,
-            celular=celular,
-            rut=rut,
-            email=email,
-            pass1=pass1,
-            pass2=pass2
-        )
-        obj.save()
-        context={'mensaje':"Usuario registrado"}
-        return render(request,'app/registro.html', context)
+        form = RegistrarForm()
+
+    return render(request, 'app/registro.html', {'registrarForm': form, 'mensaje_error': mensaje})
