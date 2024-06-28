@@ -1,94 +1,66 @@
-*{
+* {
     font-family: poppins, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-﻿
-
-.error {
-    color: red;
-    font-size: 12px;
-    margin-left: 10px;
-}
-
-
-section{
+section {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 100vh;
     background-position: center;
-    background-size: cover;
-
 }
 
-
-.contenedor{
+.contenedor {
     position: relative;
     width: 400px;
     border: 2px solid grey;
     border-radius: 20px;
-    backdrop-filter: blur(15px) ;
-    height: 850px;
+    backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Añadir un fondo oscuro con opacidad */
+    flex-direction: column; /* Asegurar que los elementos se coloquen en columna */
 }
 
-.contenedor h2{
+.contenedor h2 {
     font-size: 2.3rem;
     color: white;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.input-contenedor{
+.input-contenedor {
     position: relative;
-    margin: 30px 0;
-    width: 300px;
+    width: 100%;
     border-bottom: 2px solid white;
 }
 
-.input-contenedor label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 1rem;
-    pointer-events: none;
-    transition: .6s;
-    font-weight: bold;
-}
 
 
-.input-contenedor input:focus ~ label,
-.input-contenedor input:valid ~ label,
-.input-contenedor input:not(:placeholder-shown) ~ label {
-  top: -5px;
-}
-
-.input-contenedor input{
+.input-contenedor input {
     width: 100%;
     height: 50px;
     background-color: transparent;
     border: none;
     outline: none;
     font-size: 1rem;
-    padding: -35px 0 5px;
     color: white;
 }
 
-.input-contenedor i{
-    position: absolute;
-    color: white;
-    font-size: 1.6rem;
-    top: 19px;
-    right: 8px;
+.input-contenedor input:focus ~ label,
+.input-contenedor input:not(:placeholder-shown) ~ label {
+    top: -20px;
+    left: 5px;
+    font-size: 0.8rem;
+    color: #bbb;
 }
 
-.terminos{
+.terminos {
     margin: -15px 0 16px;
     font-size: .9em;
     color: white;
@@ -97,16 +69,15 @@ section{
     font-weight: bold;
 }
 
-
-.terminos label input{
+.terminos label input {
     margin: 3px;
-    
 }
-.terminos label a :hover{
+
+.terminos label a:hover {
     text-decoration: underline;
 }
 
-button{
+button {
     width: 100%;
     height: 45px;
     border-radius: 40px;
@@ -119,46 +90,62 @@ button{
     transition: .4s;
 }
 
-button :hover{
+button:hover {
     opacity: .9;
 }
 
-.a{color:rgb(116, 30, 170)
-
-}
-
-.registrar{
+.registrar {
     font-size: none;
     color: white;
     text-align: center;
     margin: 20px 0 10px;
-    
 }
 
-.registrar p a{
+.registrar p a {
     font-weight: bold;
     transition: .3s;
 }
 
-.registrar p a :hover{
+.registrar p a:hover {
     text-decoration: underline;
 }
 
-
-
-.volver{
+.volver {
     position: absolute;
     top: 20px;
     left: 20px;
     width: 100px;
+}
 
+.input-box input::placeholder {
+    color: white;
 }
 
 .class2 {
     display: flex;
     justify-content: flex-end;
 }
-.registrar.a {
-    color: rgba(234, 0, 0, 2); /* Color rojo con opacidad del 200% */
-    text-decoration: none;
+
+.help {
+    height: 35px;
+}
+
+.alert {
+    padding: 20px;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
 }
