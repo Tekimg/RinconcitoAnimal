@@ -1,29 +1,29 @@
-.box{
+.box {
     font-display: flex;
     text-align: center;
 }
 
-.row{
+.row {
     margin-top: 20px;
     margin-bottom: 40px;
     margin: 0 auto;
 }
 
-.card{
+.card {
     text-align: center;
     margin-top: 50px;
-
 }
 
 .class2 {
     display: flex;
     justify-content: flex-end;
 }
-.btn btn-primary{
+
+.btn.btn-primary {
     align-self: baseline;
 }
 
-/* BOTON SUBIR*/
+/* BOTON SUBIR */
 .to-top {
     position: fixed;
     bottom: 16px;
@@ -53,4 +53,20 @@
     object-fit: contain; /* Ajusta la imagen dentro del contenedor */
 }
 
+/* Media query para dispositivos móviles */
+@media (max-width: 767px) {
+    .box {
+        text-align: center;
+    }
 
+    .card {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .logito {
+        max-width: 100%; 
+        height: auto; 
+        margin: 0 10px; 
+    }
+}

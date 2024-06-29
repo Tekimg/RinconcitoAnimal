@@ -1,52 +1,53 @@
-.box{
+.box {
     font-display: flex;
     text-align: center;
 }
 
-.row{
+.row {
     margin-top: 20px;
     margin-bottom: 40px;
     margin: 0 auto;
 }
 
-.card{
+.card {
     text-align: center;
     margin-bottom: 20px;
     width: 90%;
-
 }
+
 .banner {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .logito {
     width: 80%;
-    max-width: 100%; 
-    height: auto; 
-    margin: 0 10px; 
+    max-width: 100%;
+    height: auto;
+    margin: 0 10px;
 }
 
-.aaaaa{
+.aaaaa {
     list-style: none;
 }
 
-.btn btn-primary{
+.btn.btn-primary {
     align-self: baseline;
 }
+
 .class2 {
     display: flex;
     justify-content: flex-end;
 }
 
-.help{
+.help {
     height: 35px;
 }
-.card-li{
+
+.card-li {
     padding-right: 10%;
 }
-
-
 
 /* BOTON SUBIR */
 .to-top {
@@ -78,4 +79,20 @@
     object-fit: contain; /* Ajusta la imagen dentro del contenedor */
 }
 
+/* Media query para dispositivos móviles */
+@media (max-width: 767px) {
+    .box {
+        text-align: center;
+    }
 
+    .card {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .logito {
+        max-width: 100%;
+        height: auto;
+        margin: 0 10px;
+    }
+}
