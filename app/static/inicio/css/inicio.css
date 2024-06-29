@@ -5,16 +5,21 @@
     transform: translate(-50%, -50%);
 }
 .btn {
-    padding: 50px 100px;
     background-color: darkorange;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 200%;
-    
-  }
+    display: flex;
+    align-items: center;  /* Centra verticalmente */
+    justify-content: center;  /* Centra horizontalmente */
+    padding: 10px;  /* Espaciado interno del botón */
+}
   
+
+
+
 .btn:hover {
   background-color: rgb(252, 88, 48);
 }

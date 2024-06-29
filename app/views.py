@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import User
 from .forms import RegistrarForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Producto, Categoria
 
@@ -32,6 +33,12 @@ def farmacia(request):
 def login(request):
     return render(request, 'app/login.html')
 
+
+@login_required
+def editarProductos(request):
+    return render(request, 'app/editarProductos.html')
+
+
 def registro(request):
     mensaje = ''  
     if request.method == 'POST':
@@ -44,3 +51,7 @@ def registro(request):
         form = RegistrarForm()
 
     return render(request, 'app/registro.html', {'registrarForm': form, 'mensaje_error': mensaje})
+
+def salir(request):
+    logout(request)
+    return redirect('home')
