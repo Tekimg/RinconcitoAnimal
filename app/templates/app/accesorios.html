@@ -1,10 +1,9 @@
 {% extends "app/index.html" %}
 {% load static %}
 
-{% block title %} Alimentos {% endblock %}
+{% block title %} Accesorios {% endblock %}
 {% block css %}
-<link type='text/css' rel='stylesheet' href='static/accesorios/css/style.css'>
-
+<link type='text/css' rel='stylesheet' href='{% static 'accesorios/css/style.css' %}'>
 {% endblock %}
 {% block carrusel %}
 <div id="carouselId" class="carousel slide" data-ride="carousel">
@@ -47,124 +46,41 @@
     <br><br><br>
 
     <div class="card-deck">
+        <!-- PRIMERA FILA DE PRODUCTOS -->
+        {% for product in products|slice:":4" %}
         <div class="card">
-            <img src="static/accesorios/img/arnes-correa.jpg" class="card-img-top" alt="Arnes+correa">
+            <img src="{{ product.foto.url }}" class="card-img-top img-fluid" alt="{{ product.nom_producto }}">
             <div class="card-body d-flex flex-column text-center">
-                <h5 class="card-title"> Arnés + Correa </h5>
-                <p class="card-text" style="padding-top: 15%;">
-                    Arnés con correa adecuado para perros pequeños y medianos, hecho de tela resistente con doble
-                    costura.</p>
-                <p>$7.990</p>
+                <h5 class="card-title">{{ product.nom_producto }}</h5>
+                <p class="card-text" style="padding-top: 15%;">{{ product.descripcion }}</p>
+                <p>${{ product.precio }}</p>
                 <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
             </div>
         </div>
-        <div class="card">
-            <img src="static/accesorios/img/bolso-europeo.jpg" class="card-img-top" alt="Bolso europeo">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Bolso Estilo Europeo</h5>
-                <p class="card-text">
-                    Transporta a tu incondicional de forma segura y cómoda con este nuevo bolso de estilo europeo.
-                </p>
-                <ul>
-                    <li>Resiste de hasta aproximadamente 6 kg.</li>
-                    <li>Medidas: Alto 24cm x Ancho 21cm x Fondo 41cm.</li>
-                </ul>
-                <p>$15.990</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="static/accesorios/img/catit-transportador.jpeg" class="card-img-top" alt="Catit transportador">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Catit Cabrio Transportadora (Turquesa)</h5>
-                <p class="card-text">
-                    Medidas: </p>
-                <ul>
-                    <li>Peso máximo 11,3 kg</li>
-                    <li>51 cm x 33 cm x 35 cm</li>
-                </ul>
-                <p>$80.640</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="static/accesorios/img/mochila-espacial.jpeg" class="card-img-top" alt="Mochila espacial">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Club P&G Mochila Espacial</h5>
-                <p class="card-text">
-                    Increíble mochila con diseño transparente, permite a tu incondicional ver el sol y paisaje desde
-                    el mundo
-                    exterior. </p>
-                <ul>
-                    <li>Medidas: 42 x 31 x 28 cm</li>
-                </ul>
-                <p class="card-text">
-                    $22.990 </p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-    <br><br>
+
+    <div class="card-deck mt-4">
+        <!-- SEGUNDA FILA DE PRODUCTOS -->
+        {% for product in products|slice:"4:8" %}
+        <div class="card">
+            <img src="{{ product.foto.url }}" class="card-img-top img-fluid" alt="{{ product.nom_producto }}">
+            <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title">{{ product.nom_producto }}</h5>
+                <p class="card-text" style="padding-top: 15%;">{{ product.descripcion }}</p>
+                <p>${{ product.precio }}</p>
+                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
     <a href="#" class="to-top">
         <i class="fas fa-chevron-up"></i>
     </a>
-    
-    <!---------------------separacion----------------------------->
-    <div class="card-deck">
-        <div class="card">
-            <img src="static/accesorios/img/correa-retractil.jpg" class="card-img-top" alt="Correa retractil">
-            <div class="card-body d-flex flex-column text-center">
-                <h5 class="card-title">Correa Retráctil Luz Led (Naranja)</h5>
-                <p style="padding-top: 15%;">Correa led y retractil giratoria 360°</p>
-                <p class="card-text">$16.990</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="static/accesorios/img/catit-collar.webp" class="card-img-top" alt="Catit collar">
-            <div class="card-body d-flex flex-column text-center">
-                <h5 class="card-title">Catit collar ajustable blanco con lunares</h5>
-                <p style="padding-top: 15%;">La longitud del collar (20-33 cm) se puede ajustar para obtener el ajuste
-                    perfecto para su gato.
-                </p>
-                <p>$5.220 </p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="static/accesorios/img/max-molly-correa.webp" class="card-img-top" alt="Max & Molly correa">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title"> Max & Molly Correa Frenzy The Shark</h5>
-                <p class="card-text">Esta correa multifuncional te dará mayor flexibilidad.
-                <ul>
-                    <li>Correa corta, 1 metro de largo</li>
-                    <li>Cuerda al hombro</li>
-                    <li>Cuerda a la cintura</li>
-                    <li>Correa para pasear a 2 perros.</li>
-                </ul>
-                </p>
-                <p>$2.990</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="static/accesorios/img/zeedog.jpeg" class="card-img-top" alt="Zeedog arnes">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Zeedog Flyharness Gotham</h5>
-                <p class="card-text">
-                    Zeedog Gotham FlyHarness es un arnés ligero para perros fabricado con
-                    materiales duraderos inspirados en la industria de los artículos deportivos, proporcionando una
-                    comodidad
-                    extrema para el perro y practicidad a la hora de llevarlo.</p>
-                <p>$36.990 </p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-    </div>
 </section>
 <br><br>
 
-<scritpt src="static/accesorios/js/botonsubir.js"></scritpt>
+<script src="{% static 'accesorios/js/botonsubir.js' %}"></script>
 
 {% endblock %}
