@@ -3,8 +3,9 @@
 
 {% block title %} Farmacia {% endblock %}
 {% block css %}
-<link type='text/css' rel='stylesheet' href='static/farmacia/css/style.css'>
+<link type='text/css' rel='stylesheet' href='{% static 'farmacia/css/style.css' %}'>
 {% endblock %}
+
 {% block content %}
 <br>
 <div class="banner">
@@ -12,124 +13,41 @@
 </div>
 <br><br><br>
 
-<div class="card-deck">
-        <div class="card">
-            <img style="padding-top: 5%;" src="{% static 'farmacia/img/advantix-perros.jpg' %}" class="card-img-top" alt="Advantix perros">
-            <div class="card-body d-flex flex-column"><br><br>
-                <h5 class="card-title"> Advantix Perros </h5>
-                <p class="card-text">
-                    Indicaciones en perros de:</p>
-                <ul>
-                    <li class="card-li">Menos de 4 kg/ 4-10 kg / 10- 25kg / más de 25kg</li>
-                    <li class="card-li">Advantix® es un eficaz antiparasitario externo y extraordinario repelente para perros que elimina pulgas, garrapatas y
-                        piojos masticadores.</li>
-                </ul>
-                <p>$7.592</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{% static 'farmacia/img/cabatina.jpg' %}" class="card-img-top" alt="Cabatina 2%">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Cabatina 2% 25 ml - Perros y Gatos</h5>
-                <br>
-                <ul>
-                    <li class="card-li">Solución oral.</li>
-                    <li class="card-li">Vitamina K1 (Fitomenadiona)…………..20 mg</li>
-                    <li class="card-li">Excipientes c.s.p……………………………..1mL</li>
-                </ul>
-                <br><br>
-                <p>$11.990</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{% static 'farmacia/img/artriofin.jpg' %}" class="card-img-top" alt="Artriofin 10 comp">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Artriofin 88 mg - 10 Comprimidos</h5>
-                <p class="card-text">Indicado en el alivio del dolor e inflamación en perros. Efectivo en el alivio de los signos
-                    asociados
-                    con la osteoartritis canina. También se recomienda en el control del dolor post-operatorio
-                    asociado con
-                    cirugías ortopédicas y de tejidos blandos.</p>
-                
-                <p>$17.490</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-        <div class="card">
-            <img style="padding-top: 20%;" src="{% static 'farmacia/img/bravecto-perros.jpg' %}" class="card-img-top" alt="Bravecto para perros"><br>
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Bravecto para Perros</h5><br>
-                <p class="card-text">Para el tratamiento y control de infestaciones por garrapatas y pulgas
-                    en perros, proporcionando una actividad sistémica durante 12 semanas. Las pulgas y garrapatas se 
-                    deben fijar al huésped y comenzar a alimentarse con el fin de estar expuesta al principio activo.</p><br>
-                <p class="card-text">
-                    $24.490 </p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-</div>
-
 <a href="#" class="to-top">
     <i class="fas fa-chevron-up"></i>
 </a>
 
-<!---separacion-->
 <div class="card-deck">
-        <div class="card">
-            <img style="padding-top: 20%;" src="{% static 'farmacia/img/broadline-gatos.png' %}" class="card-img-top" alt="Broadline pipeta para gatos">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Broadline Pipeta para Gatos 0.6 a 2.5 Kgs</h5>
-                <br><br>
-                <p class="card-text">Combate las infestaciones causadas por cestodos, nematodos (parásitos internos), y
-                    parásitos externos (ectoparásitos). Elimina las pulgas en las primeras 24 hrs desde su aplicación</p>
-                    <br><br>
-                <p class="card-text">$12.490</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
+    <!-- PRIMERA FILA DE PRODUCTOS -->
+    {% for product in products|slice:":4" %}
+    <div class="card">
+        <img src="{{ product.foto.url }}" class="card-img-top img-fluid" alt="{{ product.nom_producto }}">
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ product.nom_producto }}</h5>
+            <p class="card-text">{{ product.descripcion }}</p>
+            <p>${{ product.precio }}</p>
+            <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
         </div>
-        <div class="card">
-            <img style="padding-top: 10%;" src="{% static 'farmacia/img/shampoo-flt.jpg' %}" class="card-img-top" alt="Shampoo FLT Drag Pharma">
-            <div class="card-body d-flex flex-column">
-                <br>
-                <h5 class="card-title">Shampoo FLT Drag Pharma 150 ML</h5>
-                <br>
-                <p>Dermopatías donde sea necesario un efecto antimicrobiano, antipruriginoso, acaricida y queratolítico.
-                    Seborrea, piodermitis, eczemas, dermatitis, sarna, dermatomicosis, etc. Higiene periódica preventiva.</p>
-                <br>
-                <p>$12.990 </p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="card-deck mt-4">
+    <!-- SEGUNDA FILA DE PRODUCTOS -->
+    {% for product in products|slice:"4:8" %}
+    <div class="card">
+        <img src="{{ product.foto.url }}" class="card-img-top img-fluid" alt="{{ product.nom_producto }}">
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ product.nom_producto }}</h5>
+            <p class="card-text">{{ product.descripcion }}</p>
+            <p>${{ product.precio }}</p>
+            <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
         </div>
-        <div class="card">
-            <img src="{% static 'farmacia/img/superpet-omega.jpg' %}" class="card-img-top" alt="Superpet Omega para perro">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title"> Superpet Adulto Omega 3/6</h5><br>
-                <p class="card-text">Es una mezcla de aceites de origen natural y vitamina E,
-                    especialmente formulado para la mantención de la salud de su perro. Su contenido en
-                    ácidos grasos esenciales Omega 6, favorece el crecimiento en animales jóvenes, así
-                    como el desarrollo y mantención de una piel y pelaje saludables para su mascota.
-                    <br>
-                <p>$6.990</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
-         <div class="card">
-            <img style="padding-top: 10%;" src="{% static 'farmacia/img/apeticat-jarabe.jpg' %}" class="card-img-top" alt="Apeticat Jarabe 100ml"><br>
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Apeticat Jarabe 100ml</h5><br>
-                <p class="card-text">Es un suplemento formulado especialmente para gatos a base de Taurina y Carnitina,
-                    complementado con aminoácidos, vitaminas y Calcio. Su fórmula aumenta las ganas de comer de su
-                    mascota y mejorador de las funciones metabólicas del organismo.</p><br>
-                <p>$12.490</p>
-                <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
-            </div>
-        </div>
+    </div>
+    {% endfor %}
 </div>
 </section>
 <br>
-
 <scritpt src="static/farmacia/js/botonsubir.js"></scritpt>
 
 {% endblock %}

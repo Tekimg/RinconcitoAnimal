@@ -3,6 +3,7 @@ from .models import User
 from .forms import RegistrarForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from .models import Producto, Categoria
 
 
 # Create your views here.
@@ -13,13 +14,20 @@ def home(request):
     return render(request, 'app/home.html')
 
 def alimentos(request):
-    return render(request, 'app/alimentos.html')
+    categoria = Categoria.objects.get(nom_categoria='Alimentos')
+    products = Producto.objects.filter(id_categoria=categoria)[:8]
+    return render(request, 'app/alimentos.html', {'products':products})
+
 
 def accesorios(request):
-    return render(request, 'app/accesorios.html')
+    categoria = Categoria.objects.get(nom_categoria='Accesorios')
+    products = Producto.objects.filter(id_categoria=categoria)[:8]
+    return render(request, 'app/accesorios.html', {'products':products})
 
 def farmacia(request):
-    return render(request, 'app/farmacia.html')
+    categoria = Categoria.objects.get(nom_categoria='Farmacia')
+    products = Producto.objects.filter(id_categoria=categoria)[:8]
+    return render(request, 'app/farmacia.html', {'products':products})
 
 def login(request):
     return render(request, 'app/login.html')
