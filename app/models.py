@@ -2,6 +2,7 @@ from django.db import models
 #Regex para validar que tengan los formatos de registro
 from django.core.validators import RegexValidator, EmailValidator
 import datetime
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -26,19 +27,6 @@ class Categoria(models.Model):
         return self.nom_categoria
     
 
-class User(models.Model):
-    rut_regex = RegexValidator(regex=r'^\d{7,8}-[0-9kK]{1}$', message="El RUT debe tener el formato: 12345678-0")
-    rut = models.CharField(validators=[rut_regex], max_length=10, unique=True, verbose_name="RUT")
-    nombres = models.CharField(max_length=30, verbose_name="Nombres")
-    apellidos = models.CharField(max_length=30, verbose_name="Apellidos")
-    cel_regex = RegexValidator(regex=r'^\+569\d{8}$', message="El número debe tener el formato: +569xxxxxxxx")
-    celular = models.CharField(validators=[cel_regex], max_length=12, verbose_name="Teléfono")
-    email = models.EmailField(validators=[EmailValidator()], unique=True, verbose_name="Correo Electrónico")
-    pass1 = models.CharField(max_length=128, verbose_name="Contraseña")
-    pass2 = models.CharField(max_length=128, verbose_name="Confirmar Contraseña")
-
-    def __str__(self):
-        return f'{self.nombres} {self.apellidos}'
 
 
 # Orden del Cliente
