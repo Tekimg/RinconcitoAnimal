@@ -1,74 +1,248 @@
-.box{
-    font-display: flex;
-    text-align: center;
-}
-
-.row{
-    margin-top: 20px;
-    margin-bottom: 40px;
-    margin: 0 auto;
-}
-
-.card{
-    text-align: center;
-    margin-bottom: 20px;
-    width: 90%;
-
-}
-.banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.logito {
-    width: 80%;
-    max-width: 100%; 
-    height: auto; 
-    margin: 0 10px; 
-}
-
-.aaaaa{
-    list-style: none;
-}
-
-.btn btn-primary{
-    align-self: baseline;
-}
-.class2 {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.help{
-    height: 35px;
-}
-.card-li{
-    padding-right: 10%;
-}
-
-.to-top{
-    background: white;
-    position : fixed;
-    bottom:16px;
-    right:32px;
-    width:50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    color: #1f1f1f;
-    text-decoration: none;
-    opacity:0;
-    pointer-events: none;
-    transition: all .4s;
+@media( max-width: 767px){
 
 
+    .box{
+        font-display: flex;
+        text-align: center;
+    }
+
+    .row{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        margin: 0 auto;
+    }
+
+    .card{
+        text-align: center;
+        margin-bottom: 20px;
+        width: 90%;
+
+    }
+    .banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logito {
+        width: 80%;
+        max-width: 100%; 
+        height: auto; 
+        margin: 0 10px; 
+    }
+
+    .aaaaa{
+        list-style: none;
+    }
+
+    .btn btn-primary{
+        align-self: baseline;
+    }
+    .class2 {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .help{
+        height: 35px;
+    }
+    .card-li{
+        padding-right: 10%;
+    }
+
+    .to-top{
+        background: white;
+        position : fixed;
+        bottom:16px;
+        right:32px;
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: #1f1f1f;
+        text-decoration: none;
+        opacity:0;
+        pointer-events: none;
+        transition: all .4s;
+
+
+    }
+
+    .to-top.active{
+        bottom: 32px;
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+
 }
 
-.to-top.active{
-    bottom: 32px;
-    pointer-events: auto;
-    opacity: 1;
+
+@media( max-width: 768px) and (max-width: 990px){
+
+
+
+    .box{
+        font-display: flex;
+        text-align: center;
+    }
+
+    .row{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        margin: 0 auto;
+    }
+
+    .card{
+        text-align: center;
+        margin-bottom: 20px;
+        width: 90%;
+
+    }
+    .banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logito {
+        width: 80%;
+        max-width: 100%; 
+        height: auto; 
+        margin: 0 10px; 
+    }
+
+    .aaaaa{
+        list-style: none;
+    }
+
+    .btn btn-primary{
+        align-self: baseline;
+    }
+    .class2 {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .help{
+        height: 35px;
+    }
+    .card-li{
+        padding-right: 10%;
+    }
+
+    .to-top{
+        background: white;
+        position : fixed;
+        bottom:16px;
+        right:32px;
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: #1f1f1f;
+        text-decoration: none;
+        opacity:0;
+        pointer-events: none;
+        transition: all .4s;
+
+
+    }
+
+    .to-top.active{
+        bottom: 32px;
+        pointer-events: auto;
+        opacity: 1;
+    }
+
 }
+
+
+@media( max-width: 991px){
+
+
+
+    .box{
+        font-display: flex;
+        text-align: center;
+    }
+
+    .row{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        margin: 0 auto;
+    }
+
+    .card{
+        text-align: center;
+        margin-bottom: 20px;
+        width: 90%;
+
+    }
+    .banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logito {
+        width: 80%;
+        max-width: 100%; 
+        height: auto; 
+        margin: 0 10px; 
+    }
+
+    .aaaaa{
+        list-style: none;
+    }
+
+    .btn btn-primary{
+        align-self: baseline;
+    }
+    .class2 {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .help{
+        height: 35px;
+    }
+    .card-li{
+        padding-right: 10%;
+    }
+
+    .to-top{
+        background: white;
+        position : fixed;
+        bottom:16px;
+        right:32px;
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: #1f1f1f;
+        text-decoration: none;
+        opacity:0;
+        pointer-events: none;
+        transition: all .4s;
+
+
+    }
+
+    .to-top.active{
+        bottom: 32px;
+        pointer-events: auto;
+        opacity: 1;
+    }
+    
+}
+
+
+
+
