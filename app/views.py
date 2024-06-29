@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import User
-from .forms import RegistrarForm
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
+from .forms import   RegistroUserForm
+from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 from .models import Producto, Categoria
+
 
 
 # Create your views here.
@@ -32,15 +33,31 @@ def farmacia(request):
 def login(request):
     return render(request, 'app/login.html')
 
-def registro(request):
-    mensaje = ''  
-    if request.method == 'POST':
-        form = RegistrarForm(request.POST)
-        if form.is_valid():
-            form.save()
-            mensaje = 'Usuario registrado correctamente.'
-            return render(request, 'app/login.html', {'mensaje': mensaje})
-    else:
-        form = RegistrarForm()
 
-    return render(request, 'app/registro.html', {'registrarForm': form, 'mensaje_error': mensaje})
+@login_required
+def editarProductos(request):
+    return render(request, 'app/editarProductos.html')
+
+
+def registro(request):
+
+    data={
+        'form': RegistroUserForm()
+    }
+    if request.method == 'POST':
+        user_creation_form = RegistroUserForm(data=request.POST)
+
+        if user_creation_form.is_valid():
+            user_creation_form.save()
+
+            user=authenticate(username=user_creation_form.cleaned_data['username'],
+                              password=user_creation_form.cleaned_data['password1'])
+            login(request, user)
+            return redirect('home')
+        
+    return render(request,'registration/registro.html', data)
+
+
+def salir(request):
+    logout(request)
+    return redirect('home')
