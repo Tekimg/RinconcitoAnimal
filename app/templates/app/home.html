@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block title %} Home {% endblock %}
+{% block css %} 
+<link type='text/css' rel='stylesheet' href='{% static 'inicio/css/style.css' %}'>
+{% endblock %}
 
 {% block carrusel %}
 <div id="carouselId" class="carousel slide" data-ride="carousel">
@@ -34,6 +37,10 @@
     </a>
 </div>
 {% endblock %}
+<a href="#" class="to-top">
+    <i class="fas fa-chevron-up"></i>
+</a>
+
 {% block content %}
 <section>
     <div class="card-deck">
@@ -71,9 +78,7 @@
     </div>
 </section>
 
-<a href="#" class="to-top">
-    <img style="width: 70%;" src="{% static 'inicio/img-carro/patitaboton.png' %}" alt="Back to top" class="to-top-img">
-</a>
+<script src="static/farmacia/js/botonsubir.js"></script>
 
-<script src="{% static 'comida/js/botonsubir.js' %}"></script>
+
 {% endblock %}
