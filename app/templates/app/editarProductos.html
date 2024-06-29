@@ -1,10 +1,8 @@
 {% extends "app/index.html" %}
-{% load static %}
-
-{% block title %} Modificacion de productos {% endblock %}
-
+{% block title %} Modificación de Productos {% endblock %}
 
 {% block content %}
-
-<h1>Modificacion de productos</h1>
+<h1>Modificación de Productos</h1>
+<a href="{% url 'producto_list' %}">Lista de Productos</a>
+<a href="{% url 'producto_create' %}">Crear Producto</a>
 {% endblock %}

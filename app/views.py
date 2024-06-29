@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import User
 from .forms import   RegistroUserForm
+from .forms import ProductoForm
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
 from .models import Producto, Categoria
@@ -64,3 +65,45 @@ def registro(request):
 def salir(request):
     logout(request)
     return redirect('home')
+
+
+# Vista para listar productos
+@login_required
+def producto_list(request):
+    productos = Producto.objects.all()
+    return render(request, 'app/producto_list.html', {'productos': productos})
+
+
+# Vista para crear un nuevo producto
+@login_required
+def producto_create(request):
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('producto_list')
+    else:
+        form = ProductoForm()
+    return render(request, 'app/producto_form.html', {'form': form})
+
+# Vista para actualizar un producto existente
+@login_required
+def producto_update(request, pk):
+    producto = get_object_or_404(Producto, pk=pk)
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, request.FILES, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect('producto_list')
+    else:
+        form = ProductoForm(instance=producto)
+    return render(request, 'app/producto_form.html', {'form': form})
+
+# Vista para eliminar un producto
+@login_required
+def producto_delete(request, pk):
+    producto = get_object_or_404(Producto, pk=pk)
+    if request.method == 'POST':
+        producto.delete()
+        return redirect('producto_list')
+    return render(request, 'app/producto_confirm_delete.html', {'producto': producto})
