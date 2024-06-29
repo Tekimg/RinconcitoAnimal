@@ -25,7 +25,7 @@
         <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ product.nom_producto }}</h5>
             <p class="card-text">{{ product.descripcion }}</p>
-            <p>${{ product.precio }}</p>
+            <p>{{ product.precio }}</p>
             <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
         </div>
     </div>
@@ -40,7 +40,7 @@
         <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ product.nom_producto }}</h5>
             <p class="card-text">{{ product.descripcion }}</p>
-            <p>${{ product.precio }}</p>
+            <p>{{ product.precio }}</p>
             <a class="btn btn-primary mt-auto" href="#" role="button">Añadir al carro</a>
         </div>
     </div>
@@ -48,6 +48,6 @@
 </div>
 </section>
 <br>
-<scritpt src="static/farmacia/js/botonsubir.js"></scritpt>
+<script src="static/farmacia/js/botonsubir.js"></script>
 
 {% endblock %}
