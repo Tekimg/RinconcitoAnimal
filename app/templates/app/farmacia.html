@@ -13,6 +13,10 @@
 </div>
 <br><br><br>
 
+<a href="#" class="to-top">
+    <i class="fas fa-chevron-up"></i>
+</a>
+
 <div class="card-deck">
     <!-- PRIMERA FILA DE PRODUCTOS -->
     {% for product in products|slice:":4" %}
@@ -44,4 +48,6 @@
 </div>
 </section>
 <br>
+<scritpt src="static/farmacia/js/botonsubir.js"></scritpt>
+
 {% endblock %}
