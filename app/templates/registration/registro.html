@@ -15,9 +15,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<style>
-}
-</style>
+
 
 <body style="display: flex;justify-content: center;align-items: center;background: url('{% static 'logreg/img/fondo.jpg' %}')
  no-repeat fixed;background-size: cover;height: 100%;">
@@ -27,14 +25,15 @@
         </a>
         <div class="contenedor">
             <form id="formulario2" action="" method="POST" class="form-container">
-                {% csrf_token %}
                 <h2>Registro de nuevo usuario</h2>
 
+                {% csrf_token %}
+
                 {{form|crispy}}  
-                <button type="submit">Acceder</button>
+                <button type="submit">Registrarse</button>
                 <br>
                 <div class="registrar">
-                    <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a></p>
+                    <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar Sesión</a></p>
                 </div>
             </form>
 
