@@ -4,7 +4,9 @@ from .forms import   RegistroUserForm
 from .forms import ProductoForm
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
-from .models import Producto, Categoria
+from .models import Producto, Categoria, Cart, CartItem
+import os
+from django.conf import settings  # Añadir esta línea
 
 
 
@@ -107,3 +109,45 @@ def producto_delete(request, pk):
         producto.delete()
         return redirect('producto_list')
     return render(request, 'app/producto_confirm_delete.html', {'producto': producto})
+
+
+
+#CARRITO
+@login_required
+def cart_detail(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    template_path = os.path.join(settings.BASE_DIR, 'app/templates/app/cart_detail.html')
+    print(f"Looking for template at: {template_path}")  # Línea de depuración
+    return render(request, 'app/cart_detail.html', {'cart': cart})
+
+@login_required
+def add_to_cart(request, product_id):
+    # Usa 'id_producto' en lugar de 'id'
+    product = get_object_or_404(Producto, id_producto=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    cart_item.quantity += 1
+    cart_item.save()
+    return redirect('cart_detail')
+
+
+@login_required
+def remove_from_cart(request, product_id):
+    product = get_object_or_404(Producto, id_producto=product_id)
+    cart = get_object_or_404(Cart, user=request.user)
+    cart_item = get_object_or_404(CartItem, cart=cart, product=product)
+    cart_item.delete()
+    return redirect('cart_detail')
+
+
+@login_required
+def update_cart_item(request, product_id, quantity):
+    product = get_object_or_404(Producto, id_producto=product_id)
+    cart = get_object_or_404(Cart, user=request.user)
+    cart_item = get_object_or_404(CartItem, cart=cart, product=product)
+    if quantity > 0:
+        cart_item.quantity = quantity
+        cart_item.save()
+    else:
+        cart_item.delete()
+    return redirect('cart_detail')
