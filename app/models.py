@@ -3,7 +3,7 @@ from django.db import models
 from django.core.validators import RegexValidator, EmailValidator
 import datetime
 from django.contrib.auth.models import User
-
+from django.conf import settings
 
 # Create your models here.
 class Producto(models.Model):
@@ -39,3 +39,25 @@ class Order(models.Model):
 
     def __str__(self):
         return self.producto
+    
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Cart {self.id} for {self.user}'
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, related_name='items', on_delete=models.CASCADE)
+    product = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f'{self.quantity} x {self.product.nom_producto} in cart {self.cart.id}'
+
+    def get_total_price(self):
+        # Limpiar la cadena de texto del precio
+        precio_limpio = self.product.precio.replace('$', '').replace('.', '').replace(',', '.')
+        return self.quantity * float(precio_limpio)

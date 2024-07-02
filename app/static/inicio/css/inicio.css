@@ -14,7 +14,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 200%;
+      font-size: 100%;
       
     }
     
@@ -81,6 +81,7 @@
     
 
 }
+
 html {
   position: relative;
   min-height: 100%;
@@ -88,6 +89,28 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.boton{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btn {
+  padding: 50px 100px;
+  background-color: darkorange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 200%;
+  
+}
+
+.btn:hover {
+background-color: rgb(252, 88, 48);
+}
+
 
 .boton{
   position: absolute;
